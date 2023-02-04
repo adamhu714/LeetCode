@@ -1,8 +1,5 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        # permutation of string contains same number of each letter as each other
-        # sliding window across s2
-        # check if number of each letter is same as s1
         
         if len(s1) > len(s2):
             return False
