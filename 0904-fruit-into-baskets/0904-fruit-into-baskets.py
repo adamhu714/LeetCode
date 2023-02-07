@@ -10,11 +10,9 @@ class Solution:
         maxLength = 1
         i = 0
         j = 1
-        counter = 1
         newI = 1
         
         a = fruits[0]
-        #b = fruits[]
         
         while j < len(fruits):
             
@@ -26,17 +24,15 @@ class Solution:
                     newI = j
                 else:
                     i = newI
-                    j = i
-                    a = fruits[i]
+                    a = fruits[i+1]
                     newI += 1
-
+                    j -= 1
             else:
                 if fruits[newI] != fruits[j]:
                     newI = j
                 if j - i + 1 > maxLength:
                     maxLength = j - i + 1
-                
-            print(newI)
+            print(i," ",j)
             j += 1
             
         
