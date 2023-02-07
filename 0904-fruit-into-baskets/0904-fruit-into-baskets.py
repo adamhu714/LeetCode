@@ -32,7 +32,6 @@ class Solution:
                     newI = j
                 if j - i + 1 > maxLength:
                     maxLength = j - i + 1
-            print(i," ",j)
             j += 1
             
         
