@@ -8,4 +8,6 @@ class Solution:
             if i > reachable:
                 return False
             reachable = max([i + nums[i], reachable])
+            if reachable >= len(nums) - 1:
+                return True
         return True
