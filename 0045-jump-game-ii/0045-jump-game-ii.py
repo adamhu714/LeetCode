@@ -6,15 +6,18 @@ class Solution:
         # redundant calculations 
         # keep track of highest number reachable at every jump
         
-        reached = nums[0]
-        checked = 0
-        jumps = 1
-        while len(nums) > 2 and reached < len(nums) - 1:
-            for i in range(reached, checked, -1):
-                reached = max(reached, i + nums[i])
-                if reached >= len(nums) - 1:
-                    return jumps + 1
-                checked = i
-                print(i, reached)
-            jumps += 1
-        return min(len(nums) - 1, jumps)
+        reached = 0
+        oldReach = 0
+        jumps = 0
+        
+        for i in range(len(nums) - 1):
+            
+            reached = max(reached, i + nums[i])
+            
+            if reached >= len(nums) - 1:
+                return jumps + 1
+            if i == oldReach:
+                oldReach = reached
+                jumps +=1
+            
+        return jumps
