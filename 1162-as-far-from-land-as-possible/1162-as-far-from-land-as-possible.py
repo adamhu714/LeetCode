@@ -12,28 +12,25 @@ class Solution:
         visited = set(ones)
         while ones:
             
-            for i in range(len(ones)):                
-                r,c = ones.popleft()
+            for i in range(len(ones)):
                 
-                if (r+1, c) not in visited and r + 1 < n:
-                    if not grid[r+1][c]:
-                        ones.append((r+1,c))
-                        visited.add((r+1,c))
+                r,c = ones.popleft()
 
-                if (r-1, c) not in visited and r - 1 > -1:
-                    if not grid[r-1][c]:
-                        ones.append((r-1,c))
-                        visited.add((r-1,c))
-
-                if (r, c+1) not in visited and c + 1 < n:
-                    if not grid[r][c+1]:
-                        ones.append((r,c+1))
-                        visited.add((r,c+1))
+                if (r+1, c) not in visited and r + 1 < n and not grid[r+1][c]:
+                    ones.append((r+1,c))
+                    visited.add((r+1,c))
                     
-                if (r, c-1) not in visited and c - 1 > -1:
-                    if not grid[r][c-1]:
-                        ones.append((r,c-1))
-                        visited.add((r,c-1))
+                if (r-1, c) not in visited and r - 1 > -1 and not grid[r-1][c]:
+                    ones.append((r-1,c))
+                    visited.add((r-1,c))
+                    
+                if (r, c+1) not in visited and c + 1 < n and not grid[r][c+1]:
+                    ones.append((r,c+1))
+                    visited.add((r,c+1))
+                    
+                if (r, c-1) not in visited and c - 1 > -1 and not grid[r][c-1]:
+                    ones.append((r,c-1))
+                    visited.add((r,c-1))
 
             distance += 1
         
