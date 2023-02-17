@@ -22,21 +22,14 @@ public:
         }
         
         inOrderTraversal(node -> left);
-        
         minDist = min(abs(node -> val - previous), minDist);
-        
         previous = node -> val;
-            
         inOrderTraversal(node -> right);
-        
             
     }
     
     int minDiffInBST(TreeNode* root) {
-        
         inOrderTraversal(root);
-            
         return minDist;
-        
     }
 };
