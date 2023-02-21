@@ -5,7 +5,7 @@ public:
         // sorted, therefore know that before target, 2n and 2n+1 index should be same
         // also, 2n-1 should be different to 2n 
         
-        if (nums.size() > 2 && nums[0] != nums[1]) {
+        if (nums.size() > 1  && nums[0] != nums[1]) {
             return nums[0];
         }
         
