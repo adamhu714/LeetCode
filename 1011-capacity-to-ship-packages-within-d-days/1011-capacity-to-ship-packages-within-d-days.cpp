@@ -1,6 +1,5 @@
 class Solution {
 public:
-    int shipWithinDays(vector<int>& weights, int days) {
         // binary search for least weight capacity.
         
         // test whether current weight is an able capacity - if it is, reduce
@@ -11,23 +10,6 @@ public:
         // to check if able capacity, loop through weights, add to counter when 
         // over capcity and compare to days value
         
-        
-        int start = 0;
-        int end = std::reduce(weights.begin(), weights.end());
-        int mid = 0;
-        while (start <= end) {
-            mid = (start + end) / 2;
-            if (ableCapacity(weights, mid, days)) {
-                end = mid - 1;
-            } else {
-                start = mid + 1;
-            }
-        }
-        cout << start << " " << mid << " " << end;
-        return (ableCapacity(weights, start, days)) ? start : end ;
-        
-    }
-    
     bool ableCapacity(vector<int>& weights, int capacity, int days) {
         int counting = 0;
         int dayCount = 1;
@@ -45,5 +27,30 @@ public:
         }
         return true;
     }
+    
+    int shipWithinDays(vector<int>& weights, int days) {
+        
+        int start = 0;
+        int end = 0;
+        int mid = 0;
+        
+        for (int weight : weights) {
+            end += weight;
+            start = max(start, weight);
+        }
+        
+        while (start < end) {
+            mid = (start + end) / 2;
+            if (ableCapacity(weights, mid, days)) {
+                end = mid;
+            } else {
+                start = mid + 1;
+            }
+        }
+        cout << start << " " << mid << " " << end;
+        return end;
+        
+    }
+    
     
 };
