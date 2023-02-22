@@ -10,7 +10,7 @@ public:
         // to check if able capacity, loop through weights, add to counter when 
         // over capcity and compare to days value
         
-    bool ableCapacity(vector<int>& weights, int capacity, int& days) {
+    bool ableCapacity(vector<int>& weights, int capacity, int days) {
         int counting = 0;
         int dayCount = 1;
         for (int i = 0; i < weights.size(); i++) {
