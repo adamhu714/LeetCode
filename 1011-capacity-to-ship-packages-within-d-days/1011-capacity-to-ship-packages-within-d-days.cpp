@@ -36,7 +36,7 @@ public:
             end += weight;
             start = max(start, weight);
         }
-        
+        end = min(end, end/days + start);
         while (start < end) {
             mid = (start + end) / 2;
             if (ableCapacity(weights, mid, days)) {
