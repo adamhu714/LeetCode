@@ -29,11 +29,9 @@ public:
     }
     
     int shipWithinDays(vector<int>& weights, int days) {
-        
         int start = 0;
         int end = 0;
         int mid = 0;
-        
         for (int weight : weights) {
             end += weight;
             start = max(start, weight);
@@ -47,10 +45,6 @@ public:
                 start = mid + 1;
             }
         }
-        cout << start << " " << mid << " " << end;
         return end;
-        
     }
-    
-    
 };
