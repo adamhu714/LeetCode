@@ -5,16 +5,15 @@ public:
         unordered_map<string, vector<string>> mp;
         vector<vector<string>> ans;
         
-        for (const string& s : strs) {
-            string t = s;
-            sort(t.begin(), t.end());
-            mp[t].push_back(s);
+        for(int i=0;i<strs.size();++i){
+            string s=strs[i];
+            sort(s.begin(),s.end());
+            mp[s].push_back(strs[i]);
         }
-        
-        for (const auto& [i, v] : mp) {
-            ans.push_back(v);
+        for(auto it=mp.cbegin();it!=mp.cend();++it){
+            ans.push_back(it->second);
         }
-        
-        return ans;
+        return ans;        
+
     }
 };
