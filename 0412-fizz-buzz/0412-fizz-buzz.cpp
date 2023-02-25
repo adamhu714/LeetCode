@@ -4,13 +4,13 @@ public:
         vector<string> res(n);
         for (int i = 0; i < n; ++i) {
             if ((i+1) % 15 == 0) {
-                res.at(i) = "FizzBuzz";
+                res[i] = "FizzBuzz";
             } else if ((i+1) % 3 == 0) {
-                res.at(i) = "Fizz";
+                res[i] = "Fizz";
             } else if ((i+1) % 5 == 0) {
-                res.at(i) = "Buzz";
+                res[i] = "Buzz";
             } else {
-                res.at(i) = to_string(i+1);
+                res[i] = to_string(i+1);
             }
         }
         return res;
