@@ -13,13 +13,8 @@ public:
     ListNode* middleNode(ListNode* head) {
         ListNode* node = head;
         ListNode* node2 = head;
-        int count = 0;
-        while (node -> next != nullptr) {
-            node = node -> next;
-            if (count % 2 == 0) {
-                node2 = node2 -> next;
-            }
-            ++count;
+        while (node && node -> next) {
+            node2 = node2 -> next, node = node -> next -> next;
         }
         return node2;
     }
