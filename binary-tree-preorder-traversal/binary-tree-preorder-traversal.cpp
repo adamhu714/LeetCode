@@ -12,11 +12,12 @@
 class Solution {
 public:
     vector<int> pOT(TreeNode* root, vector<int> &ans) {
-        if (root != nullptr) {
-            ans.push_back(root -> val);
-            pOT(root -> left, ans);
-            pOT(root -> right, ans);
+        if (root == nullptr) {
+            return ans;
         }
+        ans.push_back(root -> val);
+        pOT(root -> left, ans);
+        pOT(root -> right, ans);
         return ans;
         
     }
