@@ -3,21 +3,15 @@ public:
     int strStr(string haystack, string needle) {
         int hayS = haystack.size();
         int neeS = needle.size();
-        int i = 0;
-        bool okay;
-        while (i <= hayS - neeS) {
-            if (haystack[i] == needle[0]) {
-                okay = true;
-                for (int j = i; j < i + neeS; ++j) {
-                    if (haystack[j] != needle[j - i]) {
-                        okay = false;
-                    }
+        for (int i = 0; i <= hayS - neeS; ++i) {
+            for (int j = 0; j < neeS; ++j) {
+                if (haystack[i+j] != needle[j]) {
+                    break;
                 }
-                if (okay) {
+                if (j == neeS - 1) {
                     return i;
                 }
             }
-            ++i;
         }
         return -1;
     }
