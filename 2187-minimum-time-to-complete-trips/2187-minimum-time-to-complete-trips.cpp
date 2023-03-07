@@ -12,7 +12,7 @@ public:
         long long l = 1;
         long long total = 0;
         while (l < r) {
-            test = (l/2 + r/2);
+            test = (l + r) / 2;
             total = 0;
             for (int t : time) {
                 total += test / t;
