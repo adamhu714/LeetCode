@@ -3,12 +3,12 @@ public:
     bool fastEnough(const vector<int>& piles, const int& h, const int& k) {
         int totalHours = 0;
         for (const auto pile : piles) {
-            totalHours += (pile / k);
-            if (pile % k != 0) ++totalHours;
+            totalHours += (pile / k) + (pile % k != 0);
         }
         return (totalHours <= h);
     }
     int minEatingSpeed(vector<int>& piles, int& h) {
+        if (piles.size() == h) return *max_element(piles.begin(), piles.end());
         int kr = 1000000000; //*max_element(piles.begin(), piles.end());
         int kl = 1;
         int k;
