@@ -3,7 +3,8 @@ public:
     bool fastEnough(const vector<int>& piles, const int& h, const int& k) {
         int totalHours = 0;
         for (const auto pile : piles) {
-            totalHours += (pile / k) + (pile % k != 0);
+            totalHours += (pile / k);
+            if (pile % k != 0) ++totalHours;
         }
         return (totalHours <= h);
     }
