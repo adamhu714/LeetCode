@@ -8,7 +8,7 @@ public:
         return (totalHours <= h);
     }
     int minEatingSpeed(vector<int>& piles, int h) {
-        int kr = *max_element(piles.begin(), piles.end());
+        int kr = INT_MAX/2; //*max_element(piles.begin(), piles.end());
         int kl = 1;
         int k = 0;
         
