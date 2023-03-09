@@ -27,6 +27,6 @@ public:
                 return entry;
             }
         }
-        return NULL;
+        return nullptr;
     }
 };
