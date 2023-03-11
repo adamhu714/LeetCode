@@ -29,7 +29,7 @@ private:
     	if( head == tail )
     		return NULL;
     	ListNode *mid = head, *temp = head;
-    	while( temp != tail && temp->next != tail )    // 寻找中间节点
+    	while( temp != tail && temp->next != tail )
     	{
     		mid = mid->next;
     		temp = temp->next->next;
