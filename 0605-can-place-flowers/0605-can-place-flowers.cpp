@@ -21,7 +21,7 @@ public:
                 return true;
             }
             if (flowerbed[i-1] + flowerbed[i] + flowerbed[i+1] == 0) {
-                ++flowerbed[i];
+                ++flowerbed[i++];
                 --n;
             }
         }
