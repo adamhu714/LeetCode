@@ -14,8 +14,7 @@ class Solution:
         count = 0
         while count < k:
             i -= 1
-            if len(bucket[i]) > 0:
-                ans.extend(bucket[i])
-                count += len(bucket[i])
+            ans.extend(bucket[i])
+            count += len(bucket[i])
         
         return ans
