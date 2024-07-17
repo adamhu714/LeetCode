@@ -2,14 +2,14 @@ class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
         ans = collections.defaultdict(list)
-
-        for s in strs:
-            count = [0] * 26
-            for c in s:
-                count[ord(c) - ord("a")] += 1
-            ans[tuple(count)].append(s)
-        return ans.values()                         
         
+        for str in strs:
+            count = [0] * 26
+            for char in str:
+                count[ord(char) - ord("a")] += 1 
+            ans[tuple(count)].append(str)
+            
+        return ans.values()
         
 #         temp = {}
 #         dictsForS = []
