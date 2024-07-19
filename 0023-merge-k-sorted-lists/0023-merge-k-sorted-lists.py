@@ -5,14 +5,15 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        if len(lists) == 0:
-            return None
-        return self.recurse(lists)
+        mergedLists = lists
+        while len(mergedLists) > 1:
+            lists = mergedLists
+            mergedLists = []
+            for i in range(0, len(lists), 2):
+                mergedLists.append(self.mergeTwo(lists[i], lists[i+1] if i + 1 < len(lists) else None))
+        return mergedLists[0] if mergedLists else None
         
-    def recurse(self, lists):
-        if len(lists) < 2:
-            return lists[0]
-        return self.mergeTwo(self.recurse(lists[1:]), lists[0])
+    
     def mergeTwo(self, l1, l2):
         dummy = ListNode()
         tail = dummy
