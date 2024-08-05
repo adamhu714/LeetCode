@@ -1,20 +1,14 @@
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
-        setOfStrings = set()
-        duplicates = set()
+        freq = {}
         
         for s in arr:
-            if s in setOfStrings:
-                duplicates.add(s)
-                continue
-            setOfStrings.add(s)
-        
-        count = k
+            freq[s] = freq.get(s, 0) + 1
         
         for s in arr:
-            if s not in duplicates:
-                if count == 1:
+            if freq[s] == 1:
+                if k == 1:
                     return s
-                count = count - 1
+                k = k - 1
         
         return ""
